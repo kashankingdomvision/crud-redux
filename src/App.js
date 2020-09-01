@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
+import PostForm from './component/PostForm';
+import AllPost from './component/AllPost';
+
 
 class App extends Component {
   render() {
-      return (
-      <div className="App">
-        <h1>Hello React!</h1>
-      </div>
-      );
-  }
+    return (
+    <div className="App">
+        <PostForm />
+        <AllPost />
+    </div>
+    );
+    }
   }
 export default App;
