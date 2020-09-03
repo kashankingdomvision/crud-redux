@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import { addPost  } from '../action/action';
+
 class PostForm extends Component {
 
-    
   handleSubmit = (e) => {
     e.preventDefault();
     const title = this.getTitle.value;
@@ -13,18 +14,19 @@ class PostForm extends Component {
       message,
       editing:false
     }
-    this.props.dispatch({
-      type:'ADD_POST',
-      data});
+
+    //
+    // this.props.dispatch({
+    //   type:'ADD_POST',
+    //   data});
+
+    this.props.addPost(data);
+
+
     this.getTitle.value = '';
     this.getMessage.value = '';
   }
 
-  _changeData() {
-    // console.log(this.state.userName);
-    // console.log(this.state.userAge);
-    this.props.changeStateToReducer(this.state);
-}
 
 
     render() {
@@ -43,4 +45,8 @@ class PostForm extends Component {
     }
 }
 
-export default connect()(PostForm);
+const mapDispatchToProps = dispatch => ({
+  addPost: (data) => dispatch(addPost(data)),
+});
+
+export default connect(null,mapDispatchToProps)(PostForm);

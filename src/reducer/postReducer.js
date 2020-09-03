@@ -12,12 +12,12 @@ const postReducer = (state = [], action) => {
         case 'UPDATE':
             return state.map((post)=>{
                 if(post.id === action.id) {
-                return {
-                    ...post,
-                    title:action.data.newTitle,
-                    message:action.data.newMessage,
-                    editing: !post.editing
-                }
+                    return {
+                        ...post,
+                        title:action.data.newTitle,
+                        message:action.data.newMessage,
+                        editing: !post.editing
+                    }
                 } else return post;
             })
 
