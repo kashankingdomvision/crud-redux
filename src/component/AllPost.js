@@ -28,7 +28,7 @@ class AllPost extends Component {
 const mapStateToProps = (state) => {
     console.log(state);
     return {
-        posts: state
+        posts: state.rootReducer
     }
 }
 
